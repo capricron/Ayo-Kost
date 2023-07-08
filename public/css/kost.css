@@ -1,0 +1,89 @@
+.image-gallery img {
+  max-width: 100%;
+  height: auto;
+}
+
+.thumbnail img{
+    width: 100%;
+    cursor: pointer;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+
+ .profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+}
+/*
+.profile-username {
+  margin-left: -1000px;
+} */
+
+.info-kost {
+    border-radius: 10px;
+    padding: 30px;
+    background-color: white;
+}
+
+.profile img{
+    width: 100px;
+    height: 100px;
+}
+
+.info-harga{
+    padding: 15px;
+    color: white;
+    background-color: #4F5962;
+}
+
+.pilih-kamar{
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+}
+
+.kotak {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    line-height: 100px;
+    font-size: 24px;
+  }
+
+  .tersedia {
+    background-color: green;
+  }
+
+  .tidak-tersedia {
+    background-color: red;
+    pointer-events: none;
+  }
+
+  .profile-username {
+    margin-left: -120px;
+  }
+
+  .dipilih {
+    background-color: yellow;
+  }
+
+  #angkaTerpilih {
+    font-size: 32px;
+    margin-top: 20px;
+  }
+
+  .modal-dialog {
+    width: 1000px !important;
+    margin: 0 auto !important;
+  }

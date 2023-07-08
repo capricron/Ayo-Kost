@@ -1,0 +1,27 @@
+.banner{
+    background-image: url('../images//kostan.jpg');
+    background-size: cover;
+    background-position: center;
+    line-height: 350px;
+    height: 400px;
+    text-align: center;
+}
+
+
+.banner-text {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+    font-size: 20px;
+}
+
+.kosts {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.yuk{
+    font-weight: bold;
+    font-size: 25px;
+}

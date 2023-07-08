@@ -1,0 +1,13 @@
+.container {
+    margin-top: 20px;
+    width: 70%;
+}
+
+.kost{
+    background-color: white;
+    margin: 20px;
+}
+
+.harga-kost{
+    margin-top: 30px;
+}

@@ -1,0 +1,42 @@
+
+body{
+    background-color: #e9e5e5 !important;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+  .sidebar {
+    background-color: #333333;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+  }
+  .sidebar ul li {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .sidebar ul li i {
+    margin-right: 10px;
+  }
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  .row{
+    width: 100vw;
+  }

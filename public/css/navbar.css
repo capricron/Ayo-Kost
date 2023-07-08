@@ -1,0 +1,16 @@
+
+body{
+    background-color: #e9e5e5 !important;
+}
+
+
+.navbar {
+    background-color: #333333 !important;
+    font-size: 20px;
+    height: 100px;
+}
+
+.navbar a {
+    font-weight: bold;
+    color: white !important;
+}

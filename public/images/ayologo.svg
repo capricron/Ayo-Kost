@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="3600" viewBox="0 0 3600 3600">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 914.4px;
+        font-family: "JellyBelly Font";
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+        text-transform: uppercase;
+      }
+
+      .cls-2 {
+        font-size: 355.6px;
+        font-family: "Eras Bold ITC";
+      }
+    </style>
+  </defs>
+  <text id="AYO" class="cls-1" transform="matrix(1.414, 0, 0, 1.414, 309.039, 2202.998)">AYO</text>
+  <text id="kos" class="cls-2" transform="matrix(1.414, 0, 0.088, 1.385, 2303.388, 1624.468)">kos</text>
+</svg>
