@@ -40,7 +40,7 @@
             <h5>No Rekening</h5>
             <input type="number" name="no_rekening">
              <h5>Bukti Pembayaran</h5>
-            <p>Untuk menambahkan kost anda harus membayar ke BCA: 123456789</p>
+            <p>Untuk menambahkan kost anda harus membayar Rp.100.000 ke BCA: 123456789</p>
             <input type="file" class="form-control-file" id="bukti" name="bukti" required>
             <br>
             <button type="submit" class="btn btn-primary">Tambah</button>

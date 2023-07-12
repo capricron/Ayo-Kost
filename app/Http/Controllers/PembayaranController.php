@@ -136,7 +136,6 @@ class PembayaranController extends Controller
                     'acc' => "diterima",
                     'tanggal_masuk' => date("Y-m-d")
                 ]);
-
             }else{
                 $penghuni->update([
                     'acc' => "ditolak",
@@ -160,7 +159,9 @@ class PembayaranController extends Controller
                     'disetujui' => 'diterima',
                     'bukti' => null
                 ]);
-            }else{
+            }else if($status == 'hapus')
+                $kost->delete();
+            else{
                 $kost->update([
                     'disetujui' => 'ditolak',
                     'bukti' => null

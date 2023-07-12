@@ -45,8 +45,12 @@
         <img src="{{ $kost->bukti }}" width="100%" alt="" srcset="">
         <br>
         <br>
-        <a href="/dashboard/pembayaran/{{ $kost->id }}/terima"><button type="button" class="btn btn-success">Terima</button></a>
-        <a href="/dashboard/pembayaran/{{ $kost->id }}/tolak"><button type="button" class="btn btn-danger">Tolak</button></a>
+        @if($kost->disetujui == 'diterima' || $kost->disetujui == 'disetujui')
+            <a href="/dashboard/pembayaran/{{ $kost->id }}/hapus"><button type="button" class="btn btn-danger">Hapus</button></a>
+        @else
+            <a href="/dashboard/pembayaran/{{ $kost->id }}/terima"><button type="button" class="btn btn-success">Terima</button></a>
+            <a href="/dashboard/pembayaran/{{ $kost->id }}/tolak"><button type="button" class="btn btn-danger">Tolak</button></a>
+        @endif
     </div>
 
 @endsection
