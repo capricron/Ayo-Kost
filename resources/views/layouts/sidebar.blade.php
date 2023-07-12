@@ -13,7 +13,7 @@
 <body>
     <div class="row">
         <div class="col-2 sidebar" >
-            <img src="../../../images/ayologo.png" width="150" class="mr-2" alt="Logo">
+            <a href="/"><img src="../../../images/ayologo.png" width="150" class="mr-2" alt="Logo"></a>
             <ul>
                 @if(auth()->user()->role == 'pemilik')
                     <li><a href="/dashboard/"><i class="fas fa-home"></i>Kost ku</a></li>

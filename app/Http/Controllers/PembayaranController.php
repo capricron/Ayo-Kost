@@ -13,15 +13,19 @@ class PembayaranController extends Controller
 
     public function index($slug, $id, Kost $kost){
 
-        $kost = Kost::where('slug', $slug)->firstOrFail();
-        $user = User::where("id", $kost->id_user)->first();
+        if(auth()->user()->role == 'penghuni'){
+            $kost = Kost::where('slug', $slug)->firstOrFail();
+            $user = User::where("id", $kost->id_user)->first();
 
-        return view('pages.pembayaran', [
-            'kost' => $kost,
-            'user' => $user,
-            'slug' => $slug,
-            'id' => $id
-        ]);
+            return view('pages.pembayaran', [
+                'kost' => $kost,
+                'user' => $user,
+                'slug' => $slug,
+                'id' => $id
+            ]);
+        }else{
+            return redirect('/');
+        }
     }
 
     public function bayar($slug, $id, Kost $kost, Request $request, Penghuni $penghuni){
@@ -29,6 +33,8 @@ class PembayaranController extends Controller
 
         $kost = Kost::where('slug', $slug)->firstOrFail();
         $user = User::where("id", $kost->id_user)->first();
+
+
 
         $request->validate([
             'bukti' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -39,13 +45,28 @@ class PembayaranController extends Controller
 
         $request->bukti->move(public_path('images/transfer'), $imageName);
 
-        $penghuni->create([
-            'id_kost' => $kost->id,
-            'id_penghuni' => auth()->user()->id,
-            'kamar' => $id,
-            'bukti' => $filenameToStore,
-            'lama_sewa' => $request->lamasewa,
-        ]);
+        if(Penghuni::where('id_kost', $kost->id)
+        ->where('kamar', $id)
+        ->exists()){
+            $perpanjang = Penghuni::where('id_kost', $kost->id)
+            ->where('kamar', $id)
+            ->first();
+            $perpanjang->update([
+                'acc' => null,
+                'bukti' => $filenameToStore,
+                'lama_sewa' => $request->lamasewa,
+                'tanggal_masuk' => null
+            ]);
+        }else{
+            $penghuni->create([
+                'id_kost' => $kost->id,
+                'id_penghuni' => auth()->user()->id,
+                'kamar' => $id,
+                'bukti' => $filenameToStore,
+                'lama_sewa' => $request->lamasewa,
+            ]);        }
+
+
 
         return redirect('/dashboard')->with("Pembayaran Telah Berhasil");
 

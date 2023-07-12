@@ -21,10 +21,10 @@
                     <h2>{{ $p->user->name }}</h2>
                     <p>Penghuni : {{ $m->nama }}</p>
                     <p>Kamar : {{ $p->kamar }}</p>
-                    @if($p->disetujui == "diterima")
+                    @if($p->acc == "diterima")
                         <p>Jatuh Tempo {{date('d-m-Y', strtotime('+1 month', strtotime($p->tanggal_masuk )))}} <span class="text-danger"></span></p>
                         <a href="/dashboard/pembayaran/{{ $p->id }}" class="btn btn-success">Cek Bukti Pembayaran</a>
-                    @elseif($p->disetujui == "ditolak")
+                    @elseif($p->acc == "ditolak")
                         <a href="/dashboard/pembayaran/{{ $p->id }}" class="btn btn-danger">Cek Bukti Pembayaran</a>
                     @else
                         <a href="/dashboard/pembayaran/{{ $p->id }}" class="btn btn-primary">Cek Bukti Pembayaran</a>

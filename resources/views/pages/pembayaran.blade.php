@@ -95,7 +95,6 @@
             bulanInput.value = currentValue - 1;
         }
         hitungTotalBiaya()
-
     });
 
     // Tambahkan event listener untuk tombol plus

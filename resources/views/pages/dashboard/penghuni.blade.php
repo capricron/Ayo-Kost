@@ -1,4 +1,4 @@
-@extends('layouts.sidebar')
+`@extends('layouts.sidebar')
 
 @section("content")
 
@@ -18,7 +18,11 @@
                         <h2>{{ $p->user->name }}</h2>
                         <p>{{ $m->nama }}</p>
                         <p>Kamar : {{ $p->kamar }}</p>
-                        <p>Jatuh Tempo {{date('d-m-Y', strtotime('+1 month', strtotime($p->tanggal_masuk )))}} <span class="text-danger"></span></p>
+                        @if($p->acc == 'diterima')
+                            <p>Jatuh Tempo {{date('d-m-Y', strtotime("+$p->lama_sewa month", strtotime($p->tanggal_masuk )))}} <span class="text-danger"></span></p>
+                        @else
+                            <p class="text-warning">Belum Diverifikasi</p>
+                        @endif
                     </div>
                 </div>
             </div>

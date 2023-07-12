@@ -7,10 +7,14 @@
 
     <h1>Kost Milik mu</h1>
 
-    <div class="kost-ku">
-        <a href="/dashboard/kost-ku/tambah"><button type="button" class="btn btn-success">Tambah Kost</button></a>
-    </div>
+    @if(auth()->user()->role)
+        <div class="kost-ku">
+            <a href="/dashboard/kost-ku/tambah"><button type="button" class="btn btn-success">Tambah Kost</button></a>
+        </div>
+    @endif
+
     <br>
+
     @if(session()->has('success'))
         <div class="alert alert-success" role="alert">
             {{ session('success') }}

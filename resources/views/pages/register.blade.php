@@ -68,8 +68,8 @@
               <label class="form-check-label" for="pemilik">Pemilik Kost</label>
             </div>
             <div class="form-check">
-              <input type="radio" class="form-check-input" id="pencari" name="role" value="pencari" required>
-              <label class="form-check-label" for="pencari">Pencari Kost</label>
+              <input type="radio" class="form-check-input" id="pencari" name="role" value="penghuni" required>
+              <label class="form-check-label" for="penghuni">Pencari Kost</label>
             </div>
           </div>
 

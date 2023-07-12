@@ -28,7 +28,7 @@
             <h5>Deskripsi</h5>
             <textarea style="width: 100%; height:70px" type="text" name="deskripsi"></textarea>
             <h5>Fasilitas</h5>
-            <p>Gunakan spasi bukan koma</p>
+            <p>Gunakann koma untuk memisahkan</p>
             <textarea id="fasilitas" name="fasilitas" placeholder="Fasilitas" style="width: 100%; height:200px"></textarea>
             <br>
             <h5>Jumlah Kamar</h5>
