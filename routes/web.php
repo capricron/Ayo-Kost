@@ -36,11 +36,13 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get("/register", [AuthController::class, 'register']);
 
+Route::post("/register", [AuthController::class, 'makeAccount']);
+
 Route::post("/login", [AuthController::class, 'authLogin']);
 
 Route::get("/logout", [AuthController::class, 'logout']);
 
-Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'auth'], function () {
     Route::get("/", [KostController::class, 'index']);
 
     Route::get("/kost-ku/tambah", [DashboardController::class, 'addKost']);
@@ -49,12 +51,14 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'da
     Route::post("/kost-ku/edit/{slug}", [KostController::class, 'update']);
     Route::get("/kost-ku/{slug}", [KostController::class, 'show']);
     Route::get("/kost-ku/edit/{slug}", [KostController::class, 'edit']);
+    Route::get("/kost-ku/{id}/{status}", [PembayaranController::class, 'updatePembayaran']);
 
     Route::get("/penghuni", [DashboardController::class, 'penghuni']);
     Route::get("/penghuni/{id}", [DashboardController::class, 'editKost']);
 
-    Route::get("/pembayaran", [DashboardController::class, 'pembayaran']);
-    Route::get("/pembayaran/{id}", [DashboardController::class, 'detailPembayaran']);
+    Route::get("/pembayaran", [PembayaranController::class, 'pembayaran']);
+    Route::get("/pembayaran/{id}", [PembayaranController::class, 'detailPembayaran']);
+    Route::get("/pembayaran/{id}/{status}", [PembayaranController::class, 'updatePembayaran']);
 
 });
 

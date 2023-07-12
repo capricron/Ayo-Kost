@@ -7,17 +7,33 @@
 
     <h1>Pembayaran</h1>
 
-    @for($i = 1; $i <= 8; $i++)
+    @if(session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @foreach ($menghuni as $m)
+    @foreach ($m->penghuni as $p )
         <div class="p-4 kost">
             <div class="row">
-                <h2>Supriyadi</h2>
-                <p>Penghuni : Kost Pak Haji</p>
-                <p>Kamar : 9</p>
-                <div class="col-12">
-                    <a href="/dashboard/pembayaran/1" class="btn btn-primary">Cek Bukti Pembayaran</a>
+                <div class="col-10 info-kost">
+                    <h2>{{ $p->user->name }}</h2>
+                    <p>Penghuni : {{ $m->nama }}</p>
+                    <p>Kamar : {{ $p->kamar }}</p>
+                    @if($p->disetujui == "diterima")
+                        <p>Jatuh Tempo {{date('d-m-Y', strtotime('+1 month', strtotime($p->tanggal_masuk )))}} <span class="text-danger"></span></p>
+                        <a href="/dashboard/pembayaran/{{ $p->id }}" class="btn btn-success">Cek Bukti Pembayaran</a>
+                    @elseif($p->disetujui == "ditolak")
+                        <a href="/dashboard/pembayaran/{{ $p->id }}" class="btn btn-danger">Cek Bukti Pembayaran</a>
+                    @else
+                        <a href="/dashboard/pembayaran/{{ $p->id }}" class="btn btn-primary">Cek Bukti Pembayaran</a>
+                    @endif
                 </div>
             </div>
         </div>
-    @endfor
+    @endforeach
+@endforeach
 
 @endsection
+

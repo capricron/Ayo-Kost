@@ -1,4 +1,9 @@
-@extends('layouts.sidebar')
+{{--
+@if(auth()->user()->role == 'pemilik')
+    @extends('layouts.sidebar-pemilik')
+@elseif(auth()->user()->role == 'pemilik')
+    @extends('layouts.sidebar-admin')
+@endif
 
 @section("content")
 
@@ -25,12 +30,10 @@
             <div class="col-8 info-kost">
                 <h2>{{ $k->nama }}</h2>
                 <p><i class="fa-sharp fa-solid fa-location-dot"></i> {{ $k->alamat }}</p>
-                @if($k->disetujui == 'diterima')
-                    <p class="text-success font-weight-bold">Sudah Diverifikasi</p>
-                @elseif($k->disetujui == 'ditolak')
-                    <p class="text-danger font-weight-bold">Sudah Diverifikasi</p>
+                @if($k->disetujui)
+                <p class="text-success">Sudah Diverifikasi</p>
                 @else
-                    <p class="text-warning font-weight-bold">Belum Diverifikasi</p>
+                <p class="text-danger">Belum Diverifikasi</p>
                 @endif
                 <a href="/dashboard/kost-ku/{{ $k->slug }}"><button type="button" class="btn btn-primary">Detail</button></a>
             </div>
@@ -38,4 +41,4 @@
     </div>
     @endforeach
 
-@endsection
+@endsection --}}

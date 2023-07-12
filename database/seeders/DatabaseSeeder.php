@@ -21,15 +21,22 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Test Penghuni',
             'email' => 'penghuni@gmail.com',
-            'password' => "$2a$12$3P4GjGthIWQ.rcEd4HgWfeblNNLsas/bY1v1gUldH.Jr81pltL2f6",
+            'password' => "$2a$12$7i6zqlHgYkeI85aKjTWNcOxNFpoZ0nueSUtwRd3P.67qL4N/R3UaC",
             'role' => "penghuni"
         ]);
 
         \App\Models\User::factory()->create([
             'name' => 'Test Pemilik',
             'email' => 'pemilik@gmail.com',
-            'password' => "$2a$12$3P4GjGthIWQ.rcEd4HgWfeblNNLsas/bY1v1gUldH.Jr81pltL2f6",
+            'password' => "$2a$12$7i6zqlHgYkeI85aKjTWNcOxNFpoZ0nueSUtwRd3P.67qL4N/R3UaC",
             'role' => "pemilik"
+        ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Test Admin',
+            'email' => 'admin@gmail.com',
+            'password' => "$2a$12$7i6zqlHgYkeI85aKjTWNcOxNFpoZ0nueSUtwRd3P.67qL4N/R3UaC",
+            'role' => "admin"
         ]);
 
         \App\Models\Kost::factory()->create([

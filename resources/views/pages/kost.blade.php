@@ -63,31 +63,32 @@
 
     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 id="modal-title" class="fs-5" id="exampleModalToggleLabel">Modal 1</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <img width="100%" src="{{ $kost->foto }}" alt="" srcset="">
-                <br>
-                <br>
-                <h4>Fasilitas Yang Tersedia</h4>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 id="modal-title" class="fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img width="100%" src="{{ $kost->foto }}" alt="" srcset="">
+                    <br>
+                    <br>
+                    <h4>Fasilitas Yang Tersedia</h4>
                     <div class="row">
                         @foreach ($fasilitas as $item)
                             <div class="col-6">
                                 <li>{{ $item }}</li>
                             </div>
                         @endforeach
+                    </div>
+                    <h5>Rp {{ $kost->harga }} / Bulan</h5>
                 </div>
-                <h5>Harga: Rp {{ $kost->harga }} / Bulan</h5>
+                <div class="modal-footer">
+                    <a id="link" href="/pembayaran/{{ $kost->slug }}/" data-id="{{ $kost->slug }}"><button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Pesan Sekarang</button></a>
+                </div>
             </div>
-            <div class="modal-footer">
-                <a id="link" href="/pembayaran/{{ $kost->slug }}/" data-id="{{ $kost->slug }}"><button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Pesan Sekarang</button></a>
-            </div>
-          </div>
         </div>
     </div>
+
 
 </div>
 

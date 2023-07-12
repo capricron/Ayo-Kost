@@ -24,7 +24,8 @@ return new class extends Migration
             $table->integer('kamar');
             $table->date('tanggal_masuk')->nullable();
             $table->string('bukti');
-            $table->boolean('disetujui')->nullable();
+            $table->string('acc')->nullable();
+            $table->integer('lama_sewa');
             $table->timestamps();
         });
     }

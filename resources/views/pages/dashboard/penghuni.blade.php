@@ -7,21 +7,23 @@
 
     <h1>Penghuni Kost</h1>
 
-    @for($i = 1; $i <= 8; $i++)
-        <div class="p-4 kost">
-            <div class="row">
-                <div class="col-1">
-                    <img width="100" src="../images/penghuni/supri.jpg" width="100%">
-                </div>
-                <div class="col-10 info-kost">
-                    <h2>Supriyadi</h2>
-                    <p>Penghuni : Kost Pak Haji</p>
-                    <p>Kamar : 9</p>
-                    <p>Jatuh Tempo : 5 Desember 2023</p>
+    @foreach ($menghuni as $m)
+        @foreach ($m->penghuni as $p )
+            <div class="p-4 kost">
+                <div class="row">
+                    <div class="col-1">
+                        <img width="100" src="{{ $p->user->profile }}" width="100%">
+                    </div>
+                    <div class="col-10 info-kost">
+                        <h2>{{ $p->user->name }}</h2>
+                        <p>{{ $m->nama }}</p>
+                        <p>Kamar : {{ $p->kamar }}</p>
+                        <p>Jatuh Tempo {{date('d-m-Y', strtotime('+1 month', strtotime($p->tanggal_masuk )))}} <span class="text-danger"></span></p>
+                    </div>
                 </div>
             </div>
-        </div>
-    @endfor
+        @endforeach
+    @endforeach
 @endsection
 
 

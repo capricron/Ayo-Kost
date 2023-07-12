@@ -15,12 +15,13 @@
 </head>
 <body>
 <div class="center">
-  <img src="../../../images/transfer/transfer.jpg" alt="" srcset="">
-  <br/>
-  <br>
-  <h5>Jika bukti transfer ini palsu tekan tombol "Tolak"</h5>
-  <button type="button" class="btn btn-success">Terima</button>
-  <button type="button" class="btn btn-danger">Tolak</button>
+    <img src="{{ $bukti->bukti }}" alt="" srcset="">
+    <br/>
+    <br>
+    <h5>Jika bukti transfer ini palsu tekan tombol "Tolak"</h5>
+    <a href="/dashboard/pembayaran/{{ $bukti->id }}/terima"><button type="button" class="btn btn-success">Terima</button></a>
+    <a href="/dashboard/pembayaran/{{ $bukti->id }}/tolak"><button type="button" class="btn btn-danger">Tolak</button></a>
+
 </div>
 
 </body>

@@ -22,7 +22,7 @@
             <h3>Nama Kost</h3>
             <input type="text" name="nama">
             <h3>Gambar</h3>
-            <input type="file" class="form-control-file" id="bukti" name="foto">
+            <input type="file" class="form-control-file" id="bukti" name="foto" required>
             <h5>Alamat</h5>
             <input type="text" name="alamat">
             <h5>Deskripsi</h5>
@@ -39,9 +39,9 @@
             <input type="text" name="bank">
             <h5>No Rekening</h5>
             <input type="number" name="no_rekening">
-             {{-- <h5>Bukti Pembayaran</h5>
+             <h5>Bukti Pembayaran</h5>
             <p>Untuk menambahkan kost anda harus membayar ke BCA: 123456789</p>
-            <input type="file" class="form-control-file" id="bukti" name="bukti" required> --}}
+            <input type="file" class="form-control-file" id="bukti" name="bukti" required>
             <br>
             <button type="submit" class="btn btn-primary">Tambah</button>
         </form>

@@ -24,8 +24,16 @@
                 </div>
                 <div class="col-8 info-kost">
                     <h2>{{ $kost->nama }}</h2>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <h3 class="mr-2">Rp {{ $kost->harga }} / bulan</h3>
+                    <div class="align-items-center justify-content-between">
+                        <h3 id="totalBiaya" class="mr-2">Rp {{ $kost->harga }} / bulan</h3>
+                        <h5>Mau Berapa Bulan?</h5>
+                        <div class="row">
+                            <div class="d-flex">
+                                <button id="minusBtn" class="btn btn-primary">-</button>
+                                <input id="bulanInput" type="number" value="1" min="1">
+                                <button id="plusBtn" class="btn btn-primary">+</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,6 +69,7 @@
         <div class="upload-bukti">
             <form action="/pembayaran/{{ $slug }}/{{ $id }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input id="lamasewa" type="hidden" name="lamasewa">
                 <div class="form-group">
                     <input type="file" class="form-control-file" id="bukti" name="bukti">
                 </div>
@@ -70,3 +79,52 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Dapatkan elemen yang diperlukan
+    var minusBtn = document.getElementById('minusBtn');
+    var plusBtn = document.getElementById('plusBtn');
+    var bulanInput = document.getElementById('bulanInput');
+    var harga = {{ $kost->harga }};
+    var totalBiaya = harga;
+
+    // Tambahkan event listener untuk tombol minus
+    minusBtn.addEventListener('click', function() {
+        var currentValue = parseInt(bulanInput.value);
+        if (currentValue > 1) {
+            bulanInput.value = currentValue - 1;
+        }
+        hitungTotalBiaya()
+
+    });
+
+    // Tambahkan event listener untuk tombol plus
+    plusBtn.addEventListener('click', function() {
+        var currentValue = parseInt(bulanInput.value);
+        bulanInput.value = currentValue + 1;
+        hitungTotalBiaya()
+    });
+
+    // Update harga saat nilai bulanInput berubah
+    bulanInput.addEventListener('change', function() {
+        var currentValue = parseInt(bulanInput.value);
+        if (currentValue < 1) {
+            bulanInput.value = 1;
+        }
+        hitungTotalBiaya()
+    });
+
+    // Fungsi untuk menghitung total biaya
+    function hitungTotalBiaya() {
+        var jumlahBulan = parseInt(bulanInput.value);
+        totalBiaya = jumlahBulan * harga;
+        console.log('Total Biaya:', totalBiaya);
+        // Lakukan logika lain yang diperlukan, seperti memperbarui tampilan atau variabel lainnya
+        document.getElementById('totalBiaya').innerHTML = 'Rp ' + totalBiaya + ' / bulan';
+        document.getElementById('lamasewa').value = bulanInput.value;
+    }
+
+    // Panggil fungsi hitungTotalBiaya saat halaman dimuat atau nilai bulanInput berubah
+    document.addEventListener('DOMContentLoaded', hitungTotalBiaya);
+    bulanInput.addEventListener('change', hitungTotalBiaya);
+</script>

@@ -47,26 +47,32 @@
     <div class="login-box">
       <img src="../images/ayologo.png" width="100px" alt="" srcset="">
       <h1>Ayo Daftar</h1>
-      <form>
+      <form action="/register" method="post">
+        @csrf
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
         </div>
         <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
+          </div>
+        <div class="form-group">
           <label for="password">Password</label>
           <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
         </div>
         <div class="form-group">
-          <label>Daftar Sebagai</label>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="pemilik" name="role" value="pemilik">
-            <label class="form-check-label" for="pemilik">Pemilik Kost</label>
+            <label>Daftar Sebagai</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="pemilik" name="role" value="pemilik" required>
+              <label class="form-check-label" for="pemilik">Pemilik Kost</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="pencari" name="role" value="pencari" required>
+              <label class="form-check-label" for="pencari">Pencari Kost</label>
+            </div>
           </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="pencari" name="role" value="pencari">
-            <label class="form-check-label" for="pencari">Pencari Kost</label>
-          </div>
-        </div>
+
         <p>Sudah punya akun? <a href="/login">Login</a></p>
         <button type="submit" class="btn btn-primary btn-block">Daftar</button>
       </form>

@@ -29,6 +29,8 @@ return new class extends Migration
             $table->string("bank");
             $table->string("no_rekening");
             $table->integer('jumlah_kamar');
+            $table->string('disetujui')->default(false);
+            $table->string("bukti")->nullable();
         });
     }
 

@@ -21,9 +21,9 @@
                     <div class="card" style="width: 18rem;">
                         <img src="{{ $k->foto }}" width="250px" height="150px" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $k->name }}</h5>
+                            <h5 class="card-title">{{ $k->nama }}</h5>
                             <p><i class="fa-sharp fa-solid fa-location-dot"></i> {{ $k->alamat }}</p>
-                            <a href="/kost/{{ $k->slug }}" class="btn btn-primary"><span class="d-inline-block"> Rp 500.000 </span> / bulan</a>
+                            <a href="/kost/{{ $k->slug }}" class="btn btn-primary"><span class="d-inline-block"> Rp {{ $k->harga }} </span> / bulan</a>
                         </div>
                     </div>
                 </div>

@@ -15,18 +15,8 @@
         <div class="col-2 sidebar" >
             <img src="../../../images/ayologo.png" width="150" class="mr-2" alt="Logo">
             <ul>
-                @if(auth()->user()->role == 'pemilik')
-                    <li><a href="/dashboard/"><i class="fas fa-home"></i>Kost ku</a></li>
-                    <li><a href="/dashboard/penghuni"><i class="fa fa-users" aria-hidden="true"></i>Penghuni</a></li>
-                    <li><a href="/dashboard/pembayaran"><i class="fa-solid fa-money-bill"></i>Pembayaran</a></li>
-                    <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-                @elseif(auth()->user()->role == 'admin')
-                    <li><a href="/dashboard/"><i class="fas fa-home"></i>Kost ku</a></li>
-                    <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-                @else
-                    <li><a href="/dashboard/"><i class="fas fa-home"></i>Kost ku</a></li>
-                    <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-                @endif
+              <li><a href="/dashboard/"><i class="fas fa-home"></i>Kost ku</a></li>
+              <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
           </div>
           <div class="p-4 col-10">

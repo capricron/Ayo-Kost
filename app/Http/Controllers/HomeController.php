@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function Home(Kost $kost){
+    public function Home(){
 
         // return $kost->get();
 
+        $kost = Kost::where('disetujui', 'diterima')->get();
+
         return view('pages.home', [
-            'kost' => $kost->get()
+            'kost' => $kost,
         ]);
     }
 }
